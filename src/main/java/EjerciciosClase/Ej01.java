@@ -5,6 +5,7 @@
 package EjerciciosClase;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Scanner;
  * Int ==> String String ==> char[]
  *
  *
- * Rellenar arrat char desde 'A' a 'Z' / Generar tamaño aleatorio desde 15 y 25
+ * Rellenar array char desde 'A' a 'Z' / Generar tamaño aleatorio desde 15 y 25
  *
  * Crear un array de ese tamaño y rellenar con posiciones velicas distintas
  *
@@ -24,11 +25,21 @@ import java.util.Scanner;
 public class Ej01 {
 
     public static void main(String[] args) {
+        
+        int numLeer, tamañoAleatorio;
+        int [] numeroAZ = {'A','B','C','D','E','F','G','H','I','G','K','L','M',
+        'N','Ñ','O','P','Q','R','S','S','T','U','V','W','X','Y','Z'};
+        
+        
 
-        int numLeer;
-
-        numLeer = leerTeclado();
-        System.out.println(comprobarCapicua(numLeer));
+//        numLeer = leerTeclado();
+//        String numCapicua;
+//        numCapicua = String.valueOf(numLeer);
+//        char[] numero = new char[numCapicua.length()];
+//        System.out.println(comprobarCapicua(numero));
+        
+            System.out.println(tamAleatorio());
+        
     }
 
     public static int leerTeclado() {
@@ -44,14 +55,11 @@ public class Ej01 {
         return numero;
     }
 
-    public static boolean comprobarCapicua(int numLeer) {
-        String numCapicua;
-        numCapicua = String.valueOf(numLeer);
-        char[] numero = new char[numCapicua.length()];
+    public static boolean comprobarCapicua(char[] numero) {
 
         boolean capicua = true;
 
-        for (int i = 0; i > numero.length; i++) {
+        for (int i = 0; i < numero.length; i++) {
             if (numero[i] == numero[(numero.length - 1) - i]) {
                 capicua = true;
             } else {
@@ -61,4 +69,14 @@ public class Ej01 {
         }
         return capicua;
     }
+    
+    public static int tamAleatorio(){
+        Random gen = new Random();
+        int numero = gen.nextInt(1,26);
+        return numero;
+    }
+    
+//    public static void genenrarArray(int tamañoAleatorio, int[] numeroAZ){
+//        
+//    }
 }

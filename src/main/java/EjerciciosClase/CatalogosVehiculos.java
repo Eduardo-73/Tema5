@@ -93,13 +93,13 @@ public class CatalogosVehiculos {
         }
     }
 
-    private void copiar(Vehiculos v) {
-        this.numeroVehiculos++;
-        this.listaVehiculos = Arrays.copyOf(listaVehiculos,
-                this.numeroVehiculos);
-        this.listaVehiculos[this.numeroVehiculos - 1] = v;
+    private Vehiculos[] copiar() {
+        Vehiculos[] v = new Vehiculos[this.numeroVehiculos + 1];
+        
+        for (int i = 0; i < this.listaVehiculos.length; i++) {
+            v[i] = this.listaVehiculos[i];
+        }
+        return v;
     }
 
 }
-
-

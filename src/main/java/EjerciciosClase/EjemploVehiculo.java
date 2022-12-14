@@ -12,15 +12,37 @@ public class EjemploVehiculo {
 
     public static void main(String[] args) {
 
+        Vehiculos v = new Vehiculos();
+        Cliente c = new Cliente("146879345G", "PACO", "LEÓN");
+        CatalogosVehiculos catalogo = new CatalogosVehiculos(5);
+        CatalogoCliente catalogo2 = new CatalogoCliente(3);
+
+        System.out.println(v);
+        System.out.println(c);
+        System.out.println("Nº vehículo del catálogo: " + catalogo.getNumeroVehiculos());
+        System.out.println(catalogo);
+
+        System.out.println("--------- Después de borrar el de la posición 3 ----------");
+        System.out.println("Nº vehículo del catálogo: " + catalogo.getNumeroVehiculos());
+        System.out.println(catalogo);
+        
+        System.out.println("Nº cliente del catálogo: " + catalogo2.getNumeroCliente());
+        System.out.println(catalogo2);
+
+        System.out.println("--------- Después de borrar el de la posición 3 ----------");
+        System.out.println("Nº cliente del catálogo: " + catalogo2.getNumeroCliente());
+        System.out.println(catalogo2);
+        
+ 
+    }
+}
+
+//        System.out.println(v);
 //        Modelo aleatorio = Modelo.getAleatorio();
 //        
 //        System.out.println("El modelo aleatorio es " + aleatorio.getModelo());
 //        
-//        System.out.println("Color " + Color.getAleatorio());
-        Vehiculos v = new Vehiculos();
-//        System.out.println(v);
-        CatalogosVehiculos catalogo = new CatalogosVehiculos(5);
-           
+//        System.out.println("Color " + Color.getAleatorio());      
 //        System.out.println("Nº vehículo del catálogo: " + catalogo.getNumeroVehiculos());
 //        System.out.println(catalogo);
 //
@@ -55,5 +77,3 @@ public class EjemploVehiculo {
 //        int pos = catalogo.buscarVehiculo(v);
 //        System.out.println("posición " + pos);
 //        catalogo.mostrarCatalogo();
-    }
-}

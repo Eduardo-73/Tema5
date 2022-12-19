@@ -50,6 +50,18 @@ public class Ej23 {
             
         }
         lista3.forEach(System.out::println);
+        
+        for (int i = 0; i < lista1.size(); i++) {
+           if (lista1.get(i) %2 == 0){
+               lista4.add(lista1.get(i));
+           }
+        }
+        
+        for (int i = 0; i < lista2.size(); i++) {
+           if (lista2.get(i) %3 == 0){
+               lista4.add(lista2.get(i));
+           }
+        }
     }
    
 }

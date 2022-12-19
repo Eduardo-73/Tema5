@@ -12,10 +12,10 @@ import java.util.Random;
  */
 public class Ej15 {
 
-    boolean[] moneda = new boolean[1000];
+    private boolean[] moneda;
 
     public Ej15() {
-        this.moneda = moneda;
+        this.moneda = new boolean[1000];
     }
 
     public void lanzarMonedas() {
@@ -30,7 +30,6 @@ public class Ej15 {
         for (boolean b : moneda) {
             if (b == true) {
                 contador++;
-
             }
         }
         return contador;

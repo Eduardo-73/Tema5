@@ -20,29 +20,36 @@ public class Ej23 {
         ArrayList<Integer> lista3 = new ArrayList<>();
         ArrayList<Integer> lista4 = new ArrayList<>();
         Random gen = new Random();
-
+        //crear 3 generadores de números randoms 
         int num1 = gen.nextInt(5, 15 + 1);
         int num2 = gen.nextInt(10, 20 + 1);
-        int num3; 
-
+        int num3;
+        //este bucle crea una sucesión de números que van desde el 50 al 100 
         for (int i = 0; i < num1; i++) {
             num3 = gen.nextInt(50, 100 + 1);
-            lista1.add(num3);  
+            lista1.add(num3);
         }
-        
+
         for (int i = 0; i < num2; i++) {
             num3 = gen.nextInt(50, 100 + 1);
             lista2.add(num3);
         }
+        //muestro en pantalla las listas mediante el forEach
         System.out.println("---------------");
         lista1.forEach(System.out::println);
         System.out.println("---------------");
         lista2.forEach(System.out::println);
         System.out.println("---------------");
-        lista3.contains(lista1);
-        for (int i = 0; i < lista3.size(); i++) {
+        
+        //la lista tres contiene la lista no y no la lista 2 
+        // y luego la muestro en pantalla
+        for (Integer aux : lista1) {
+            if (!lista2.contains(aux)) {
+                lista3.add(aux);
+            }
             
         }
-        
+        lista3.forEach(System.out::println);
     }
+   
 }

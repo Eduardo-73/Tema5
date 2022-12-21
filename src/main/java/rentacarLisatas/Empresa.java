@@ -33,10 +33,9 @@ public class Empresa {
     public Empresa() {
     }
 
-    public void registrarCliente(Cliente c) {
-        this.catalogoCliente.anadirCliente(c);
+    public CatalogoAlquiler alquilerCliente(String nif){
+        this.catalogoAlquiler.lista;
     }
-
     public Cliente buscarCliente(String nif) {
         return this.catalogoCliente.buscarCliente(nif);
     }

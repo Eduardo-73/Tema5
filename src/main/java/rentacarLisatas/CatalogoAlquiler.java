@@ -4,73 +4,44 @@
  */
 package rentacarLisatas;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
  * @author eduardo
  */
-public class CatalogoAlquiler {
+public class CatalogoAlquiler extends Catalogo<Alquileres> {
 
-    private List<Alquileres> alquiler;
-
-    public CatalogoAlquiler(int alquiler) {
-        alquiler = Math.abs(alquiler);
-        this.alquiler = new ArrayList<>(alquiler);
-        for (int i = 0; i < alquiler; i++) {
-            this.alquiler.add(new Alquileres());
-        }
-    }
-
-    public String toString() {
-        String tmp = "";
-
-        for (Alquileres a : this.alquiler) {
-
-            if (a != null) {
-                tmp += a.toString() + "\n";
-            }
-        }
-
-        return tmp;
-    }
-
-    public int getNumeroAlquiler() {
-        return this.alquiler.size();
+    public CatalogoAlquiler(int tamanio) {
+        super(tamanio);
     }
 
     public Alquileres buscarAlquiler(int id) {
         Alquileres aux = new Alquileres();
         aux.setAlquilerID(id);
-        int posicion = buscarAlquiler(aux);
-        return (posicion >= 0) ? this.alquiler.get(id) : null;
+        int posicion = buscarElemento(aux);
+        return (posicion >= 0) ? this.lista.get(id) : null;
     }
 
-    public boolean borrarAlquiler(Alquileres a) {
-        int pos = buscarAlquiler(a);
-        if (pos >= 0) {
-            this.alquiler.remove(a);
-            return true;
-        }
-        return false;
-    }
-
-    private int buscarAlquiler(Alquileres a) {
-        //Búsqueda secuencial
-        if (a != null) {
-            for (int i = 0; i < this.alquiler.size(); i++) {
-                if (a.equals(this.alquiler.get(i))) {
-                    return i;
-                }
+    public Alquileres buscarAlquilerCliente(String nif) {
+        Alquileres aux = new Alquileres();
+        ArrayList listaCliente = new ArrayList<Alquileres>(); 
+        for (Alquileres a : this.lista) {
+            if (nif.equals(a.getCliente().getNif())) {
+                listaCliente.add(aux);
             }
         }
-        return -1;
+        return aux;
     }
-
-    public void anadirAlquiler(Alquileres a) {
-        this.alquiler.add(a);
+    
+    public Alquileres buscarAlquilerVehiculo(String bastidor) {
+        Alquileres aux = new Alquileres();
+        ArrayList listaCliente = new ArrayList<Alquileres>(); 
+        for (Alquileres a : this.lista) {
+            if (bastidor.equals(a.getVehiculo().getBastidor())) {
+                listaCliente.add(aux);
+            }
+        }
+        return aux;
     }
 }

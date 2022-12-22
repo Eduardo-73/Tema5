@@ -44,4 +44,8 @@ public class CatalogoAlquiler extends Catalogo<Alquileres> {
         }
         return aux;
     }
+    
+    public Alquileres borrarAquiler(String id){
+        
+    }
 }

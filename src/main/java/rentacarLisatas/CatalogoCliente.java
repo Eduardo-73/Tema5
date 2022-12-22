@@ -14,8 +14,6 @@ public class CatalogoCliente extends Catalogo<Cliente> {
         super(tamanio);
     }
 
-    
-
     public Cliente buscarCliente(String nif) {
         Cliente aux = new Cliente();
         aux.setNif(nif);

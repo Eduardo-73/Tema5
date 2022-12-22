@@ -34,7 +34,8 @@ public class Empresa {
     }
 
     public CatalogoAlquiler alquilerCliente(String nif){
-        this.catalogoAlquiler.lista;
+        
+        return this.catalogoAlquiler.buscarAlquilerCliente(nif);
     }
     public Cliente buscarCliente(String nif) {
         return this.catalogoCliente.buscarCliente(nif);

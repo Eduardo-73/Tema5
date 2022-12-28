@@ -65,4 +65,13 @@ public class Catalogo<T> {
         this.lista.add(elemento);
     }
 
+    public List<T> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<T> lista) {
+        this.lista = lista;
+    }
+
+    
 }

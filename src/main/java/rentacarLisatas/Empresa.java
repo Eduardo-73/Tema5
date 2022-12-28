@@ -5,6 +5,7 @@
 package rentacarLisatas;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Objects;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -33,38 +34,91 @@ public class Empresa {
     public Empresa() {
     }
 
-    public CatalogoAlquiler alquilerCliente(String nif){
-        
-        return this.catalogoAlquiler.buscarAlquilerCliente(nif);
-    }
-    public Cliente buscarCliente(String nif) {
-        return this.catalogoCliente.buscarCliente(nif);
-    }
+//    public CatalogoAlquiler alquilerCliente(String nif) {
+//
+//        return this.catalogoAlquiler.buscarAlquilerCliente(nif);
+//    }
+//
+//    public Cliente buscarCliente(String nif) {
+//        return this.catalogoCliente.buscarCliente(nif);
+//    }
+//
+//    public void registrarVehiculo(Vehiculos v) {
+//        this.catalogoVehiculo.anadirVehiculo(v);
+//    }
+//
+//    public Vehiculos buscarVehiculo(String bastidor) {
+//        return this.catalogoVehiculo.buscarVehiculos(bastidor);
+//    }
+//
+//    public boolean registrarAlquiler(String nif, String bastidor, LocalDate fechainicio, int dias) {
+//        Cliente auxCli = this.catalogoCliente.buscarCliente(nif);
+//        Vehiculos auxVe = this.catalogoVehiculo.buscarVehiculos(bastidor);
+//        if (auxCli != null && auxVe != null && auxVe.isDisponible() == true) {
+//            this.catalogoAlquiler.anadirAlquiler(new Alquileres(auxCli, auxVe, fechainicio, dias));
+//            auxVe.setDisponible(false);
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public void recibirVehiculos(Alquileres a) {
+//
+//        if (this.catalogoAlquiler.buscarAlquiler(a.getArquileID()) != null) {
+//            a.getVehiculo().setDisponible(true);
+//        }
+//    }
+//EJERCICIO 5C
 
-    public void registrarVehiculo(Vehiculos v) {
-        this.catalogoVehiculo.anadirVehiculo(v);
-    }
+    public ArrayList buscarAlquilerCliente(String nif) {
 
-    public Vehiculos buscarVehiculo(String bastidor) {
-        return this.catalogoVehiculo.buscarVehiculos(bastidor);
-    }
+        ArrayList<Alquileres> clienteNif = new ArrayList();
 
-    public boolean registrarAlquiler(String nif, String bastidor, LocalDate fechainicio, int dias) {
-        Cliente auxCli = this.catalogoCliente.buscarCliente(nif);
-        Vehiculos auxVe = this.catalogoVehiculo.buscarVehiculos(bastidor);
-        if (auxCli != null && auxVe != null && auxVe.isDisponible() == true) {
-            this.catalogoAlquiler.anadirAlquiler(new Alquileres(auxCli, auxVe, fechainicio, dias));
-            auxVe.setDisponible(false);
-            return true;
+        for (int i = 0; i < this.catalogoCliente.getLista().size(); i++) {
+
+            if (this.catalogoAlquiler.lista.equals(this.catalogoCliente.buscarCliente(nif))) {
+                clienteNif.add(catalogoAlquiler.getLista().get(i));
+            }
         }
-        return false;
+        return clienteNif;
     }
 
-    public void recibirVehiculos(Alquileres a) {
+    public ArrayList buscarAlquilerVehiculo(String bastidor) {
 
-        if (this.catalogoAlquiler.buscarAlquiler(a.getArquileID()) != null) {
-            a.getVehiculo().setDisponible(true);
+        ArrayList<Alquileres> vehiculoBastidor = new ArrayList();
+
+        for (int i = 0; i < this.catalogoVehiculo.getLista().size(); i++) {
+
+            if (this.catalogoAlquiler.lista.equals(this.catalogoVehiculo.buscarVehiculos(bastidor))) {
+                vehiculoBastidor.add(catalogoAlquiler.getLista().get(i));
+            }
         }
+        return vehiculoBastidor;
+    }
+
+    public void borrarAlquilerPorID(int AlquilerID) {
+        this.catalogoAlquiler.getLista().remove(AlquilerID);
+    }
+
+    public void borrarCliente(Cliente c) {
+        this.catalogoAlquiler.getLista().remove(c);
+    }
+
+    public void borrarVehiculo(Vehiculos v) {
+        this.catalogoAlquiler.getLista().remove(v);
+    }
+
+    public ArrayList obtenerVehiculos(LocalDate fecha) {
+
+        ArrayList<Vehiculos> v = new ArrayList();
+
+        for (Alquileres a : this.catalogoAlquiler.lista) {
+            if (a.getFechaInicio().equals(fecha)) {
+                v.add(a.getVehiculo());
+
+            }
+        }
+        return v;
     }
 
     public String getCif() {

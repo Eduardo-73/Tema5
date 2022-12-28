@@ -26,8 +26,8 @@ public class ListaReproduccion {
 
     public boolean estaVacia() {
         int posicon = 1;
-        boolean vacio;
-        return (posicon >= 0) ?  : this.canciones.add(vacio);
+        boolean vacio = false;
+        return (posicon >= 0) ? posicion : this.canciones.add(vacio);
     }
 
     public Cancion escucharCancion(int posicion) {

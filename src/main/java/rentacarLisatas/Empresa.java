@@ -74,9 +74,9 @@ public class Empresa {
 
         ArrayList<Alquileres> clienteNif = new ArrayList();
 
-        for (int i = 0; i < this.catalogoCliente.getLista().size(); i++) {
+        for (int i = 0; i < this.catalogoAlquiler.getLista().size(); i++) {
 
-            if (this.catalogoAlquiler.lista.equals(this.catalogoCliente.buscarCliente(nif))) {
+            if (this.catalogoAlquiler.lista.get(i).getCliente().getNif().equals(nif)) {
                 clienteNif.add(catalogoAlquiler.getLista().get(i));
             }
         }
@@ -97,7 +97,10 @@ public class Empresa {
     }
 
     public void borrarAlquilerPorID(int AlquilerID) {
-        this.catalogoAlquiler.getLista().remove(AlquilerID);
+         Alquileres aux = this.catalogoAlquiler.buscarAlquiler(AlquilerID);
+       if (aux != null){
+           this.catalogoAlquiler.borrarElemento(aux);
+       }
     }
 
     public void borrarCliente(Cliente c) {
@@ -111,7 +114,9 @@ public class Empresa {
     public ArrayList obtenerVehiculos(LocalDate fecha) {
 
         ArrayList<Vehiculos> v = new ArrayList();
-
+        for (int i = 0; i < this.catalogoAlquiler.; i++) {
+            
+        }
         for (Alquileres a : this.catalogoAlquiler.lista) {
             if (a.getFechaInicio().equals(fecha)) {
                 v.add(a.getVehiculo());

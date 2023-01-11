@@ -89,7 +89,7 @@ public class Menu {
         String bastidor = teclado.nextLine();
         System.out.println("Cuentos días quieres alquilar el coche: ");
         int dias = teclado.nextInt();
-        Alquileres aux = new Alquileres(e.getCatalogoAlquiler()., e.buscarAlquilerVehiculo(bastidor), LocalDate.now(), dias);
+        Alquileres aux = new Alquileres();
         e.getCatalogoAlquiler().anadirElemento(aux);
     }
 

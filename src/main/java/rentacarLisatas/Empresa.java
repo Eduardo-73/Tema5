@@ -26,9 +26,9 @@ public class Empresa {
     public Empresa(String cif, String nombre) {
         this.cif = cif;
         this.nombre = nombre;
-        this.catalogoCliente = new CatalogoCliente(5);
-        this.catalogoVehiculo = new CatalogosVehiculos(5);
-        this.catalogoAlquiler = new CatalogoAlquiler(5);
+        this.catalogoCliente = new CatalogoCliente(0);
+        this.catalogoVehiculo = new CatalogosVehiculos(0);
+        this.catalogoAlquiler = new CatalogoAlquiler(0);
     }
 
     public Empresa() {

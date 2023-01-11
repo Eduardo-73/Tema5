@@ -45,13 +45,17 @@ public class Menu {
                 case "3":
                     alquilarVehiculos(e);
                     break;
-                case "4":
-                    mostrarCliente(e);
+                case "4" :
+                    // añadir un cliente por su nif
+                    e.getCatalogoCliente().
                     break;
                 case "5":
-                    mostrarVehiculos(e);
+                    mostrarCliente(e);
                     break;
                 case "6":
+                    mostrarVehiculos(e);
+                    break;
+                case "7":
                     mostrarAlquiler(e);
                     break;
                 default:
@@ -69,12 +73,12 @@ public class Menu {
         System.out.println("Introduce tu apellido: ");
         apellido = teclado.nextLine();
         Cliente c = new Cliente(nombre, apellido);
-        e.getCatalogoCliente().anadirCliente(c);
+        e.getCatalogoCliente().anadirElemento(c);
     }
 
     public static void registrarVehiculo(Empresa e) {
         Vehiculos v = new Vehiculos();
-        e.getCatalogoVehiculo().anadirVehiculo(v);
+        e.getCatalogoVehiculo().anadirElemento(v);
     }
 
     public static void alquilarVehiculos(Empresa e) {
@@ -85,8 +89,8 @@ public class Menu {
         String bastidor = teclado.nextLine();
         System.out.println("Cuentos días quieres alquilar el coche: ");
         int dias = teclado.nextInt();
-        Alquileres aux = new Alquileres(e.buscarCliente(nif), e.buscarVehiculo(bastidor), LocalDate.now(), dias);
-        e.getCatalogoAlquiler().anadirAlquiler(aux);
+        Alquileres aux = new Alquileres(e.getCatalogoAlquiler()., e.buscarAlquilerVehiculo(bastidor), LocalDate.now(), dias);
+        e.getCatalogoAlquiler().anadirElemento(aux);
     }
 
     public static void mostrarCliente(Empresa e) {

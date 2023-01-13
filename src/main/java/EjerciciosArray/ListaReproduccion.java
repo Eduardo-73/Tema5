@@ -24,20 +24,21 @@ public class ListaReproduccion {
         return this.canciones.get(numero);
     }
 
-    public boolean estaVacia() {
-        int posicon = 1;
-        boolean vacio = false;
-        return (posicon >= 0) ? posicion : this.canciones.add(vacio);
-    }
-
-    public Cancion escucharCancion(int posicion) {
-        Cancion c = new Cancion();
-        for (int i = 0; i < this.canciones.size(); i++) {
-            if (c.equals(this.canciones.get(i))) {
-                return i;
-            }
-        }
-    }
+//    public boolean estaVacia() {
+//        int posicon = 1;
+//        boolean vacio = false;
+//        return (posicon >= 0) ? posicion : this.canciones.add(vacio);
+//    }
+//
+//    public Cancion escucharCancion(int posicion) {
+//        Cancion c = new Cancion();
+//        for (int i = 0; i < this.canciones.size(); i++) {
+//            if (c.equals(this.canciones.get(i))) {
+//                return i;
+//            }
+//        }
+//        return -1;
+//    }
 
     @Override
     public int hashCode() {

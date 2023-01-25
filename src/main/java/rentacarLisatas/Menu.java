@@ -47,7 +47,7 @@ public class Menu {
                     break;
                 case "4" :
                     // añadir un cliente por su nif
-                    e.getCatalogoCliente().
+//                    e.getCatalogoCliente().
                     break;
                 case "5":
                     mostrarCliente(e);

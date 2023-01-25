@@ -114,9 +114,9 @@ public class Empresa {
     public ArrayList obtenerVehiculos(LocalDate fecha) {
 
         ArrayList<Vehiculos> v = new ArrayList();
-        for (int i = 0; i < this.catalogoAlquiler.; i++) {
-            
-        }
+//        for (int i = 0; i < this.catalogoAlquiler.; i++) {
+//            
+//        }
         for (Alquileres a : this.catalogoAlquiler.lista) {
             if (a.getFechaInicio().equals(fecha)) {
                 v.add(a.getVehiculo());

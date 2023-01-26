@@ -12,8 +12,8 @@ import java.util.logging.Logger;
  * @author eduardo
  */
 //Para implementar metodos abstractos implements Comparable<NombreClase>
-public class País implements Comparable<País> {
-    
+public class País implements Comparable<País> {//Ordena la lista por el nombre ya que ese fue el criterio de su ordenación
+    //No es recomendable utilizar la clase record
     private String nombre;
     private long poblacion;
     private long superficie;
@@ -26,6 +26,10 @@ public class País implements Comparable<País> {
         this.moneda = moneda;
     }
 
+    public País() {
+    }
+
+    
     public String getNombre() {
         return nombre;
     }

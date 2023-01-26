@@ -45,21 +45,71 @@ public class OrdenacionBusqueda {
         Collections.sort(paises, criterioPoblacion.reversed());
 
         paises.forEach(System.out::println);
-        
+
         System.out.println("-----------------");
-        
+
         Comparator<País> criterioSuperficie = (p1, p2) -> Long.compare(p1.getSuperficie(), p2.getSuperficie());
-        
+
         Collections.sort(paises, criterioSuperficie);
 
         paises.forEach(System.out::println);
-        
+
         System.out.println("-----------------");
-        
-        Comparator<País> criterioNombre = (p1, p2) -> p1.getNombre().compareToIgnoreCase( p2.getNombre());
-        
+
+        Comparator<País> criterioNombre = (p1, p2) -> p1.getNombre().compareToIgnoreCase(p2.getNombre());
+
         Collections.sort(paises, criterioSuperficie.thenComparing(criterioNombre));
 
         paises.forEach(System.out::println);
+
+        //Busqueda por orden natural(po nombre)
+        //Lalista donde buscar la información debe estar  ordenada previamente
+        //según el criterio de orden natural(nombre) --> Comparable en País
+        //Ordena la lista de países por superficie y luego por población
+        //Collections.sort(paises,criterioSuperficie);
+        //Collections.sort(paises, criterioPoblacion);
+        /*
+        Clase Pojo (orden natural)
+            <<Comparable>>
+                implementar métodos abstractos
+                    compareTo (Objeto o Pojo)
+         */
+        Collections.sort(paises);
+
+        System.out.println("-------------- Búsqueda binaria ---------------");
+        System.out.println("Lista ordenada según orden natural (nombre) ---------------");
+        paises.forEach(System.out::println);
+
+        País objetoBuscar = new País();
+        objetoBuscar.setNombre("EEUU");//Lista ordenada por nombre, búsqueda por nombre, key es nombre
+        int posicion = Collections.binarySearch(paises, objetoBuscar);
+
+        System.out.println("Portugal está en la posición " + posicion);
+
+        //Si intento buscar en la lista con un valor que no es nombre se puede 
+        //obtener una posición erróenea
+        objetoBuscar.setNombre("");
+        objetoBuscar.setPoblacion(23);
+
+        posicion = Collections.binarySearch(paises, objetoBuscar);
+
+        System.out.println(posicion);
+
+        //Si ordeno la lista por un criterio y busco por otro, el resultado es inesperado
+        posicion = Collections.binarySearch(paises, objetoBuscar, criterioPoblacion);
+
+        System.out.println(posicion);
+        
+        System.out.println("-----Ordenación y busqueda por población----------");
+        //Antes de usar binarySeach por población la lista debe estar ordenada por población
+        Collections.sort(paises, criterioPoblacion);
+        paises.forEach(System.out::println);
+        objetoBuscar = new País();
+        objetoBuscar.setPoblacion(146);
+        
+        posicion = Collections.binarySearch(paises, objetoBuscar, criterioPoblacion);
+        System.out.println("El país que tiene 146 millones es " + paises.get(posicion));
+       
+        
     }
 }

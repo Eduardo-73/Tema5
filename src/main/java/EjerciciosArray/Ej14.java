@@ -13,10 +13,10 @@ public class Ej14 {
         
         //Declara e inicializa una matriz de caracteres de 2x3
         
-        int matrizint [][] = new int[0][0];
-        
-        matrizint [0];
-        
+//        int matrizint [][] = new int[0][0];
+//        
+//        matrizint [0];
+//        
         
     }
 }

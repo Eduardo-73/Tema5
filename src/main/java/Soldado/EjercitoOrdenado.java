@@ -5,26 +5,25 @@
 package Soldado;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
- * @author eduardo
+ * @author eduar
  */
-public class Ejercito {
-
-    private Set<Soldado> setSoldado;
+public class EjercitoOrdenado {
+        private Set<Soldado> setSoldado;
     private int numSoldadosN;
 
-    public Ejercito(Set<Soldado> soldado, int numSoldadoN) {
-        this.setSoldado = new HashSet<>();
-        this.numSoldadosN = numSoldadoN;
+    public EjercitoOrdenado(Set<Soldado> setSoldado, int numSoldadosN) {
+        this.setSoldado = new TreeSet<>();
+        this.numSoldadosN = numSoldadosN;
     }
 
-    public Ejercito() {
+    public EjercitoOrdenado() {
     }
 
     public int getNumSoldadosN() {

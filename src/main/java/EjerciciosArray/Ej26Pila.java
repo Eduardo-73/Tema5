@@ -5,6 +5,7 @@
 package EjerciciosArray;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -12,11 +13,12 @@ import java.util.ArrayList;
  */
 public class Ej26Pila<P> {
 
-    private ArrayList<P> pila;
+    private List<P> pila;
     private int tamanio;
 
-    public Ej26Pila(int tamanio) {
-        this.pila = new ArrayList<>(tamanio);
+    public Ej26Pila(int tamanioMax) {
+        this.pila = new ArrayList();
+        this.tamanio = tamanioMax;
     }
 
     public void push(P elemento) {
@@ -57,11 +59,11 @@ public class Ej26Pila<P> {
         return objeto;
     }
     
-    public ArrayList<P> getPila() {
+    public List<P> getPila() {
         return pila;
     }
 
-    public void setPila(ArrayList<P> pila) {
+    public void setPila(List<P> pila) {
         this.pila = pila;
     }
 
